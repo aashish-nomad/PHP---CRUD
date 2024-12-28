@@ -57,7 +57,7 @@ if ($doesUserEmailExist || $doesUserNameExist) {
   $db->query('INSERT INTO users(email, name, password) VALUES(:email, :name, :password)', [
     'email' => $email,
     'name' => $username,
-    'password' => $password
+    'password' => password_hash($password, PASSWORD_BCRYPT)
   ]);
 
   // Mark user as logged in.
