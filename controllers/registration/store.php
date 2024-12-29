@@ -61,10 +61,10 @@ if ($doesUserEmailExist || $doesUserNameExist) {
   ]);
 
   // Mark user as logged in.
-  $_SESSION['user'] = [
+  login([
     'email' => $email,
     'name' => $username
-  ];
+  ]);
 
   header('location: /');
   exit();
