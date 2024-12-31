@@ -42,22 +42,8 @@ function view($view, $attributes = [])
   require base_path('views/' . $view);
 }
 
-function login($user)
+function redirect($url)
 {
-  $_SESSION['user'] = $user;
-
-  session_regenerate_id(true);
-}
-
-function logout()
-{
-  // Empty global session object.
-  $_SESSION = [];
-
-  // Delete the content of file in which session was stored.
-  session_destroy();
-
-  // Delete the cookie stored in the client browser.
-  $params = session_get_cookie_params();
-  setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+  header("location: {$url}");
+  exit();
 }

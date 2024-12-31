@@ -1,6 +1,7 @@
 <?php
 
 use Core\App;
+use Core\Authenticator;
 use Core\Database;
 use Core\Validator;
 
@@ -61,7 +62,7 @@ if ($doesUserEmailExist || $doesUserNameExist) {
   ]);
 
   // Mark user as logged in.
-  login([
+ (new Authenticator)->login([
     'email' => $email,
     'name' => $username
   ]);
