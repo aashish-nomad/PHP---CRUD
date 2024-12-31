@@ -5,6 +5,7 @@
 use Core\App;
 use Core\Database;
 use Core\Validator;
+use Http\Forms\LoginForm;
 
 $errors = [];
 
@@ -12,20 +13,12 @@ $errors = [];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Validate email
-if (!Validator::email($email)) {
-  $errors['email'] = 'Please provide a valid email address.';
-}
-
-// Validate password.
-if (!Validator::string($password, 7, 255)) {
-  $errors['password'] = 'Password length should be atleast 7 characters and not more than 255 characters.';
-}
+$form = new LoginForm();
 
 // If any validation error redirect to session page with the error messages.
-if (!empty($errors)) {
+if (!$form->validate($email, $password)) {
   return view('/session/create.view.php', [
-    'errors' => $errors
+    'errors' => $form->errors()
   ]);
 
   exit();
