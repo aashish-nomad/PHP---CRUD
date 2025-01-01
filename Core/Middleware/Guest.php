@@ -2,13 +2,14 @@
 
 namespace Core\Middleware;
 
-class Guest {
+class Guest
+{
 
-  public function handle() {
-    if ($_SESSION['user']) {
+  public function handle()
+  {
+    if (isset($_SESSION['user'])) {
       header('location: /');
       exit();
     }
   }
-
 }

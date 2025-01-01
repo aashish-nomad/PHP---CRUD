@@ -3,6 +3,7 @@
 session_start();
 
 use Core\Router;
+use Core\Session;
 
 const BASE_DIR = __DIR__ . '/../';
 
@@ -27,3 +28,6 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 $router->route($uri, $method);
+
+// Delete the flash data as soon as it is loaded in the view.
+Session::unflash();

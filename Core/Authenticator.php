@@ -35,14 +35,6 @@ class Authenticator
 
   public function logout()
   {
-    // Empty global session object.
-    $_SESSION = [];
-
-    // Delete the content of file in which session was stored.
-    session_destroy();
-
-    // Delete the cookie stored in the client browser.
-    $params = session_get_cookie_params();
-    setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+    Session::destroy();
   }
 }

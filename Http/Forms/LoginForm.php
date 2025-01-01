@@ -19,7 +19,7 @@ class LoginForm
       $this->errors['password'] = 'Password length should be atleast 7 characters and not more than 255 characters.';
     }
 
-    return empty($errors);
+    return empty($this->errors);
   }
 
   public function errors()
