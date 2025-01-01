@@ -1,6 +1,7 @@
 <?php
 
 use Core\Response;
+use Core\Session;
 
 function dd($value)
 {
@@ -46,4 +47,9 @@ function redirect($url)
 {
   header("location: {$url}");
   exit();
+}
+
+function old($key, $default = '')
+{
+  return Session::get('old')[$key] ?? $default;
 }
