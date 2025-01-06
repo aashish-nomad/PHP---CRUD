@@ -68,4 +68,8 @@ class Router
     require base_path("views/{$statuscode}.php");
     die();
   }
+
+  public function previousUrl() {
+    return $_SERVER['HTTP_REFERER'];
+  }
 }
