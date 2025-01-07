@@ -8,16 +8,18 @@ use Core\ValidationException;
 
 const BASE_DIR = __DIR__ . '/../';
 
+require BASE_DIR . 'vendor/autoload.php';
+
 require BASE_DIR . "Core/functions.php";
 
-spl_autoload_register(function ($class) {
+// spl_autoload_register(function ($class) {
 
-  // $class value after using name space: Core\Database.
-  // Directory separator is a forward slash.
-  $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+//   // $class value after using name space: Core\Database.
+//   // Directory separator is a forward slash.
+//   $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
 
-  require base_path("{$class}.php");
-});
+//   require base_path("{$class}.php");
+// });
 
 require BASE_DIR . "bootstrap.php";
 

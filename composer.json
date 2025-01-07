@@ -1,0 +1,16 @@
+{
+    "name": "dell/php-crud",
+    "authors": [
+        {
+            "name": "aashish-nomad",
+            "email": "aashish.nomad@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
